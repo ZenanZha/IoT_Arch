@@ -15,7 +15,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeController"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="logic_unit" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logic_unit" lowerBound="1"
         eType="#//Logic_Unit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Network">
@@ -29,6 +29,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Port">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
         eType="#//Sensor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reader" upperBound="-1"
+        eType="#//Reader" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Actuator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeActuator"/>
@@ -45,6 +47,10 @@
         eType="#//Sensor" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actuator" upperBound="-1"
         eType="#//Actuator" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reader" upperBound="-1"
+        eType="#//Reader" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" upperBound="-1" eType="#//Tag"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -84,5 +90,23 @@
     <eLiterals name="Garage Door"/>
     <eLiterals name="Smart Light" value="1"/>
     <eLiterals name="Fire Alarm" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reader">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeReader"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" lowerBound="1" upperBound="-1"
+        eType="#//Tag" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeReader">
+    <eLiterals name="RFID"/>
+    <eLiterals name="NFC" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeTag"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeTag">
+    <eLiterals name="RFID"/>
+    <eLiterals name="NFC" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
