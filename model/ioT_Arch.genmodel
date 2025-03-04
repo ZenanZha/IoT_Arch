@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/IoT_Arch/src-gen" creationIcons="false" editDirectory="/IoT_Arch.edit/src-gen"
+    editorDirectory="/IoT_Arch.editor/src-gen" modelPluginID="IoT_Arch" modelName="IoT_Arch"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="23.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ioT_Arch.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="IoT_Arch" disposableProviderFactory="true" ecorePackage="ioT_Arch.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeController">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeController/ELEGOO_ESP-WROOM-32"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeNetwork">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeNetwork/WiFi"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeNetwork/Bluetooth"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeNetwork/ZigBee"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeNetwork/5G"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeActuator">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Micro_Water_Pump"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/DUTTY_Passive_Buzzer"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/ELEGOO_LED_Kit"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeSensor">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Infrared_Flame_Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Gas_Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Ultrasonic_Sensor"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypePhysicalEntity">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypePhysicalEntity/Ultrasonic_MotionDetector"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypePort">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypePort/Digital"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeSmartHomeSystem">
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSmartHomeSystem/Garage%20Door"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSmartHomeSystem/Smart%20Light"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSmartHomeSystem/Fire%20Alarm"/>
+    </genEnums>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Architecture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Architecture/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Architecture/controller"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Architecture/physical_entity"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Controller">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Controller/network"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Controller/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Controller/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Controller/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Controller/logic_unit"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Network">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Network/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Network/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Output">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Output/actuator"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Input">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Input/sensor"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Actuator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Actuator/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Actuator/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Sensor/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Sensor/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Physical_Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Physical_Entity/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Physical_Entity/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/sensor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/actuator"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Port/pin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Port/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Port/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Logic_Unit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Logic_Unit/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Logic_Unit/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

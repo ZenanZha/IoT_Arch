@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ioT_Arch" nsURI="http://www.example.org/ioT_Arch" nsPrefix="ioT_Arch">
+  <eClassifiers xsi:type="ecore:EClass" name="Architecture">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" upperBound="-1"
+        eType="#//Controller" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="physical_entity" upperBound="-1"
+        eType="#//Physical_Entity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="network" upperBound="-1"
+        eType="#//Network" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//Port"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeController"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="logic_unit" upperBound="-1"
+        eType="#//Logic_Unit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeNetwork"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuator" upperBound="-1"
+        eType="#//Actuator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//Sensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeActuator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeSensor"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Physical_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypePhysicalEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//Sensor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuator" upperBound="-1"
+        eType="#//Actuator" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypePort"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeController">
+    <eLiterals name="ELEGOO_ESP-WROOM-32"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeNetwork">
+    <eLiterals name="WiFi"/>
+    <eLiterals name="Bluetooth" value="1"/>
+    <eLiterals name="ZigBee" value="2"/>
+    <eLiterals name="5G" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeActuator">
+    <eLiterals name="Micro_Water_Pump"/>
+    <eLiterals name="DUTTY_Passive_Buzzer" value="1"/>
+    <eLiterals name="ELEGOO_LED_Kit" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeSensor">
+    <eLiterals name="Infrared_Flame_Sensor"/>
+    <eLiterals name="Gas_Sensor" value="1"/>
+    <eLiterals name="Ultrasonic_Sensor" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypePhysicalEntity">
+    <eLiterals name="Ultrasonic_MotionDetector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypePort">
+    <eLiterals name="Digital"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Logic_Unit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeSmartHomeSystem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeSmartHomeSystem">
+    <eLiterals name="Garage Door"/>
+    <eLiterals name="Smart Light" value="1"/>
+    <eLiterals name="Fire Alarm" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>
