@@ -29,28 +29,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="Input" eSuperTypes="#//Port">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
         eType="#//Sensor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reader" upperBound="-1"
-        eType="#//Reader" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actuator">
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//Device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeActuator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor">
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeSensor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Physical_Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypePhysicalEntity"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
-        eType="#//Sensor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actuator" upperBound="-1"
-        eType="#//Actuator" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reader" upperBound="-1"
-        eType="#//Reader" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" upperBound="-1" eType="#//Tag"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="physical_entity" eType="#//Physical_Entity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -70,11 +61,26 @@
     <eLiterals name="Micro_Water_Pump"/>
     <eLiterals name="DUTTY_Passive_Buzzer" value="1"/>
     <eLiterals name="ELEGOO_LED_Kit" value="2"/>
+    <eLiterals name="Motor" value="3"/>
+    <eLiterals name="Speaker" value="4"/>
+    <eLiterals name="Heater" value="5"/>
+    <eLiterals name="Solenoid" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeSensor">
     <eLiterals name="Infrared_Flame_Sensor"/>
     <eLiterals name="Gas_Sensor" value="1"/>
     <eLiterals name="Ultrasonic_Sensor" value="4"/>
+    <eLiterals name="Thermometer" value="3"/>
+    <eLiterals name="Humidity Sensor" value="4"/>
+    <eLiterals name="Barometric Pressure Sensor" value="5"/>
+    <eLiterals name="Gyroscope" value="6"/>
+    <eLiterals name="GPS" value="7"/>
+    <eLiterals name="Pressure Sensor" value="8"/>
+    <eLiterals name="Infrared Sensor" value="9"/>
+    <eLiterals name="Microphone" value="10"/>
+    <eLiterals name="Power Sensor" value="11"/>
+    <eLiterals name="Heart Rate Sensor" value="12"/>
+    <eLiterals name="Body Temperature Sensor" value="13"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypePhysicalEntity">
     <eLiterals name="Ultrasonic_MotionDetector"/>
@@ -91,22 +97,21 @@
     <eLiterals name="Smart Light" value="1"/>
     <eLiterals name="Fire Alarm" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reader">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeReader"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" lowerBound="1" upperBound="-1"
-        eType="#//Tag" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TypeReader">
-    <eLiterals name="RFID"/>
-    <eLiterals name="NFC" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//Device">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//TypeTag"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" upperBound="-1"
+        eType="#//Sensor" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TypeTag">
     <eLiterals name="RFID"/>
     <eLiterals name="NFC" value="1"/>
+    <eLiterals name="UWB (Ultra-Wideband)" value="2"/>
+    <eLiterals name="Barcode " value="3"/>
+    <eLiterals name="QR Code" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device" eSuperTypes="#//Physical_Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="device" upperBound="-1"
+        eType="#//Device" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -22,11 +22,26 @@
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Micro_Water_Pump"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/DUTTY_Passive_Buzzer"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/ELEGOO_LED_Kit"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Motor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Speaker"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Heater"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeActuator/Solenoid"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeSensor">
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Infrared_Flame_Sensor"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Gas_Sensor"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Ultrasonic_Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Thermometer"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Humidity%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Barometric%20Pressure%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Gyroscope"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/GPS"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Pressure%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Infrared%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Microphone"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Power%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Heart%20Rate%20Sensor"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSensor/Body%20Temperature%20Sensor"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypePhysicalEntity">
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypePhysicalEntity/Ultrasonic_MotionDetector"/>
@@ -39,13 +54,12 @@
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSmartHomeSystem/Smart%20Light"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeSmartHomeSystem/Fire%20Alarm"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeReader">
-      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeReader/RFID"/>
-      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeReader/NFC"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="ioT_Arch.ecore#//TypeTag">
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeTag/RFID"/>
       <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeTag/NFC"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeTag/UWB%20(Ultra-Wideband)"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeTag/Barcode%20"/>
+      <genEnumLiterals ecoreEnumLiteral="ioT_Arch.ecore#//TypeTag/QR%20Code"/>
     </genEnums>
     <genClasses ecoreClass="ioT_Arch.ecore#//Architecture">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Architecture/name"/>
@@ -68,7 +82,6 @@
     </genClasses>
     <genClasses ecoreClass="ioT_Arch.ecore#//Input">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Input/sensor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Input/reader"/>
     </genClasses>
     <genClasses ecoreClass="ioT_Arch.ecore#//Actuator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Actuator/type"/>
@@ -81,10 +94,7 @@
     <genClasses ecoreClass="ioT_Arch.ecore#//Physical_Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Physical_Entity/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Physical_Entity/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/sensor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/actuator"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/reader"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/tag"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Physical_Entity/physical_entity"/>
     </genClasses>
     <genClasses ecoreClass="ioT_Arch.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Port/pin"/>
@@ -95,14 +105,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Logic_Unit/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Logic_Unit/name"/>
     </genClasses>
-    <genClasses ecoreClass="ioT_Arch.ecore#//Reader">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Reader/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Reader/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Reader/tag"/>
-    </genClasses>
     <genClasses ecoreClass="ioT_Arch.ecore#//Tag">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Tag/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ioT_Arch.ecore#//Tag/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Tag/sensor"/>
+    </genClasses>
+    <genClasses ecoreClass="ioT_Arch.ecore#//Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ioT_Arch.ecore#//Device/device"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
